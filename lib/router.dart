@@ -4,6 +4,7 @@ import 'package:shellroute/pages/nav_page.dart';
 import 'pages/home_page.dart';
 import 'pages/search_page.dart';
 import 'pages/profile_page.dart';
+import 'pages/login_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: "root");
 
@@ -36,7 +37,9 @@ class LayoutScaffold extends StatelessWidget {
 
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
+  initialLocation: '/login',
   routes: [
+    GoRoute(path: '/login', builder: (context, state) => const LoginPage()),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) =>
           LayoutScaffold(navigationShell: navigationShell),
